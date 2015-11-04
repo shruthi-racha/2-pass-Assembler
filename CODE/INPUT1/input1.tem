@@ -1,0 +1,34 @@
+
+    1  0000  				 datasegment
+    2  0000  				 listdb04h,39h,12h,02h
+    3  0004  				 countequ04
+    4  0004  				 dataends
+    5  0000  				 
+    6  0000  				 codesegment
+    7  0000  				 assumecs:code,ds:data
+    8  0000  				 start:
+    9  0000  				 movax,data
+   10  0003  				 movds,ax
+   11  0005  				 movdl,4
+   12  000B  				 
+   13  000B  				 again0:
+   14  000B  				 movcl,dl
+   15  000D  				 movsi,00
+   16  0010  				 
+   17  0010  				 again1:
+   18  0010  				 movax,si
+   19  0012  				 cmpal,[si+1]
+   20  0016  				 jlpr1
+   21  0018  				 xchgal,[si+1]
+   22  001C  				 xchgal,[si]
+   23  001E  				 
+   24  001E  				 pr1:addsi,01
+   25  001E  				 loopagain1
+   26  0020  				 decdx
+   27  0021  				 jnzagain0
+   28  0023  				 
+   29  0023  				 int21h
+   30  0025  				 movax,4c00h
+   31  0028  				 int21h
+   32  002A  				 codeends
+   33  002A  				 

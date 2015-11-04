@@ -1,0 +1,17 @@
+
+    1  0000  				 datasegment
+    2  0000  				 db10h
+    3  0000  				 dw20h
+    4  0000  				 equ30
+    5  0000  				 dataends
+    6  0000  				 
+    7  0000  				 last1:
+    8  0000  				 moval,
+    9  0000  				 addbx,
+   10  0000  				 jmplast
+   11  0003  				 divbx
+   12  0005  				 shrax,
+   13  0007  				 last:
+   14  0007  				 movah,4ch
+   15  0009  				 int21h
+   16  000B  				 end

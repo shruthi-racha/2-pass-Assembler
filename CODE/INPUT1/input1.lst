@@ -1,0 +1,57 @@
+
+     LIST FILE: input1.lst  for  input1.asm 
+
+
+     1    0000    			data segment 
+     2    0000    04 27 0C 02 			list db 04h , 39h , 12h , 02h 
+     3    0004    			count equ 04 
+     4    0004    			data ends 
+     5    0000    			
+     6    0000    00 00 00 00 00 00 00 00 00 00 00 00 			code segment 
+     7    0000    			assume cs : code , ds : data 
+     8    0000    			start : 
+     9    0000    B8 00 00 			mov ax , data 
+    10    0003    8E D8 			mov ds , ax 
+    11    0005    B2 04 			mov dl , 4 
+    12    0011    			
+    13    0011    			again0 : 
+    14    0011    8A CA 			mov cl , dl 
+    15    0013    BE 00 00 			mov si , 00 
+    16    0016    			
+    17    0016    			again1 : 
+    18    0016    8B C6 			mov ax , si 
+    19    0018    3A 84 01 00 			cmp al , [si+1] 
+    20    0022    7C 06 			jl pr1 
+    21    0024    86 84 01 00 			xchg al , [si+1] 
+    22    0028    86 04 			xchg al , [si] 
+    23    0030    			
+    24    0030    			pr1 : add si , 01 
+    25    0030    E2 F0 			loop again1 
+    26    0032    4A 			dec dx 
+    27    0033    75 E8 			jnz again0 
+    28    0035    			
+    29    0035    CD 21 			int 21h 
+    30    0037    B8 04 4C 			mov ax , 4c00h 
+    31    0040    CD 21 			int 21h 
+    32    0042    			code ends 
+    33    0042    			
+
+*********User defined variables and types.**********
+
+list                Data Byte
+
+start               Label
+
+again0              Label
+
+again1              Label
+
+pr1                 Label
+
+
+Number of lines  = 34
+
+
+
+Number of errors = 0
+

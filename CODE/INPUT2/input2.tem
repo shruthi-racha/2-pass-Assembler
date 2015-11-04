@@ -1,0 +1,27 @@
+
+    1  0000  				 
+    2  0000  				 
+    3  0000  				 
+    4  0000  				 
+    5  0000  				 
+    6  0000  				 
+    7  0000  				 datasegment
+    8  0000  				 msdbHello
+    9  0001  				 numdb65
+   10  0002  				 dataends
+   11  0000  				 
+   12  0000  				 codesegment
+   13  0000  				 assumecs:code,ds:data
+   14  0000  				 
+   15  0000  				 movax,data
+   16  0003  				 movds,ax
+   17  0005  				 
+   18  0005  				 movah,09h
+   19  0007  				 movdx,offset0
+   20  000A  				 int21h
+   21  000C  				 movax,4ch
+   22  000F  				 int21h
+   23  0011  				 
+   24  0011  				 
+   25  0011  				 codeends
+   26  0011  				 

@@ -1,0 +1,46 @@
+
+     LIST FILE: input2.lst  for  input2.asm 
+
+
+     1    0000    			
+     2    0000    			
+     3    0000    			
+     4    0000    			
+     5    0000    			
+     6    0000    			
+     7    0000    			data segment 
+     8    0000    00 			ms db Hello 
+     9    0001    41 			num db 65 
+    10    0002    			data ends 
+    11    0000    			
+    12    0000    00 00 00 00 00 00 00 00 00 00 00 00 00 00 			code segment 
+    13    0000    			assume cs : code , ds : data 
+    14    0000    			
+    15    0000    B8 00 00 			mov ax , data 
+    16    0003    8E D8 			mov ds , ax 
+    17    0005    			
+    18    0005    B4 09 			mov ah , 09h 
+    19    0007    BA 00 00 			mov dx , offset 0 
+    20    0010    CD 21 			int 21h 
+    21    0012    B8 04 00 			mov ax , 4ch 
+    22    0015    CD 21 			int 21h 
+    23    0017    			
+    24    0017    			
+    25    0017    			code ends 
+    26    0017    			
+
+*********User defined variables and types.**********
+
+prints              Macro
+
+ms                  Data Byte
+
+num                 Data Byte
+
+
+Number of lines  = 27
+
+
+
+Number of errors = 0
+
